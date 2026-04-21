@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>广州农商银行 - 推荐有礼活动</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+</head>
+<body>
+
+    <div class="app" id="app">
+        
+        <!-- Page 1: Home -->
+        <div class="page" id="page-home">
+            <div class="page-content">
+                <div class="home-banner">
+                    <div class="banner-badge">私钻客户专享</div>
+                    <h1 class="banner-title">推荐有礼活动</h1>
+                    <p class="banner-subtitle">成功推荐，最高可获双份礼品</p>
+                    <div class="banner-deco">🎁</div>
+                </div>
+
+                <div class="card rules-card">
+                    <div class="card-header">
+                        <span class="card-icon">📋</span>
+                        <span>活动规则</span>
+                    </div>
+                    <div class="rules-list">
+                        <div class="rule-item">
+                            <div class="rule-num">1</div>
+                            <div class="rule-text">
+                                <strong>私钻转介非私钻提升</strong>
+                                <p>存量私钻客户转介存量客户，资产月日均达标，推荐人与被推荐人<em>各得一份礼品</em></p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-num">2</div>
+                            <div class="rule-text">
+                                <strong>私钻转介新私钻</strong>
+                                <p>存量私钻客户转介新客户，资产月日均达标，推荐人与被推荐人<em>各得一份礼品</em></p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-num">3</div>
+                            <div class="rule-text">
+                                <strong>领取上限</strong>
+                                <p>每位客户最多可领取 <em>3 份礼品</em>，超出部分需人工审批</p>
+                            </div>
+                        </div>
+                        <div class="rule-item">
+                            <div class="rule-num">4</div>
+                            <div class="rule-text">
+                                <strong>领取有效期</strong>
+                                <p>达标后需在活动有效期内领取，<em>逾期视为放弃</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="btn-join">立即参与活动</button>
+
+                <div class="home-footer">
+                    <p>活动时间：2026.04.01 - 2026.12.31</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2: Register -->
+        <div class="page" id="page-register" style="display:none;">
+            <div class="page-content">
+                <div class="nav-bar">
+                    <button class="nav-back" id="btn-back-home">←</button>
+                    <span class="nav-title">报名参与活动</span>
+                    <div class="nav-placeholder"></div>
+                </div>
+
+                <div class="form-area">
+                    <div class="form-group">
+                        <label>推荐人姓名</label>
+                        <input type="text" class="form-input" id="input-name" placeholder="请输入您的姓名" maxlength="20">
+                        <div class="input-hint" id="hint-name"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>推荐人手机号</label>
+                        <div class="input-row">
+                            <input type="tel" class="form-input" id="input-phone" placeholder="请输入手机号" maxlength="11">
+                            <button class="btn-code" id="btn-code">获取验证码</button>
+                        </div>
+                        <div class="input-hint" id="hint-phone"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>短信验证码</label>
+                        <input type="text" class="form-input" id="input-code" placeholder="请输入验证码" maxlength="6">
+                        <div class="input-hint" id="hint-code"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>我的推荐码</label>
+                        <div class="code-display" id="my-code">— — — — — —</div>
+                        <p class="code-tip">报名成功后自动生成，可分享给好友</p>
+                    </div>
+
+                    <div class="agree-row">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agree-check">
+                            <span class="checkbox-text">我已阅读并同意<em>《活动规则与条款》</em></span>
+                        </label>
+                    </div>
+
+                    <button class="btn-primary" id="btn-submit" disabled>确认报名</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: My Referrals -->
+        <div class="page" id="page-referral" style="display:none;">
+            <div class="page-content">
+                <div class="referral-banner">
+                    <div class="referral-label">我的推荐码</div>
+                    <div class="referral-code" id="display-code">GZRC2026042101</div>
+                </div>
+
+                <div class="card qr-card">
+                    <div class="qr-area" id="qr-area">
+                        <div class="qr-placeholder">二维码展示区</div>
+                    </div>
+                    <button class="btn-share" id="btn-share">分享给好友</button>
+                </div>
+
+                <div class="card records-card">
+                    <div class="card-header">
+                        <span class="card-icon">👥</span>
+                        <span>推荐记录</span>
+                        <span class="record-count" id="record-count">3人</span>
+                    </div>
+                    <div class="records-list" id="records-list">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+
+                <div class="tab-nav">
+                    <button class="tab-btn" id="btn-go-progress">查看礼品领取</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Progress & Claim -->
+        <div class="page" id="page-progress" style="display:none;">
+            <div class="page-content">
+                <div class="progress-header">
+                    <div class="progress-stat">
+                        <div class="stat-num"><span id="claimed-count">1</span> <span class="stat-total">/ 3 份</span></div>
+                        <div class="stat-label">累计已领取礼品</div>
+                    </div>
+                    <div class="progress-tip">距离上限还有 <em id="remain-count">2</em> 份，快去推荐吧！</div>
+                </div>
+
+                <div class="gifts-list" id="gifts-list">
+                    <!-- Dynamic content -->
+                </div>
+
+                <div class="tab-nav">
+                    <button class="tab-btn secondary" id="btn-go-home">返回首页</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="toast" id="toast" style="display:none;">
+            <span id="toast-msg"></span>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal" id="modal" style="display:none;">
+            <div class="modal-content">
+                <div class="modal-icon" id="modal-icon">✓</div>
+                <div class="modal-title" id="modal-title"></div>
+                <div class="modal-msg" id="modal-msg"></div>
+                <button class="btn-primary modal-btn" id="modal-btn">确定</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
